@@ -1,0 +1,13 @@
+B:\SmartHotel\SmartHotel\SmartHotel.Registration.Web.BAL\bin\Debug\SmartHotel.Registration.Web.BAL.dll
+B:\SmartHotel\SmartHotel\SmartHotel.Registration.Web.BAL\bin\Debug\SmartHotel.Registration.Web.BAL.pdb
+B:\SmartHotel\SmartHotel\SmartHotel.Registration.Web.BAL\bin\Debug\SmartHotel.Registration.Web.DAL.dll
+B:\SmartHotel\SmartHotel\SmartHotel.Registration.Web.BAL\bin\Debug\SmartHotel.Registration.Web.DTO.dll
+B:\SmartHotel\SmartHotel\SmartHotel.Registration.Web.BAL\bin\Debug\EntityFramework.dll
+B:\SmartHotel\SmartHotel\SmartHotel.Registration.Web.BAL\bin\Debug\SmartHotel.Registration.Web.DAL.pdb
+B:\SmartHotel\SmartHotel\SmartHotel.Registration.Web.BAL\bin\Debug\SmartHotel.Registration.Web.DAL.dll.config
+B:\SmartHotel\SmartHotel\SmartHotel.Registration.Web.BAL\bin\Debug\SmartHotel.Registration.Web.DTO.pdb
+B:\SmartHotel\SmartHotel\SmartHotel.Registration.Web.BAL\bin\Debug\EntityFramework.xml
+B:\SmartHotel\SmartHotel\SmartHotel.Registration.Web.BAL\obj\Debug\SmartHotel.Registration.Web.BAL.csprojAssemblyReference.cache
+B:\SmartHotel\SmartHotel\SmartHotel.Registration.Web.BAL\obj\Debug\SmartHotel.Registration.Web.BAL.csproj.CopyComplete
+B:\SmartHotel\SmartHotel\SmartHotel.Registration.Web.BAL\obj\Debug\SmartHotel.Registration.Web.BAL.dll
+B:\SmartHotel\SmartHotel\SmartHotel.Registration.Web.BAL\obj\Debug\SmartHotel.Registration.Web.BAL.pdb

@@ -1,0 +1,4 @@
+B:\SmartHotel\SmartHotel\SmartHotel.Registration.Web.DTO\bin\Debug\SmartHotel.Registration.Web.DTO.dll
+B:\SmartHotel\SmartHotel\SmartHotel.Registration.Web.DTO\bin\Debug\SmartHotel.Registration.Web.DTO.pdb
+B:\SmartHotel\SmartHotel\SmartHotel.Registration.Web.DTO\obj\Debug\SmartHotel.Registration.Web.DTO.dll
+B:\SmartHotel\SmartHotel\SmartHotel.Registration.Web.DTO\obj\Debug\SmartHotel.Registration.Web.DTO.pdb

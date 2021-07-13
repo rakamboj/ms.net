@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="smarthotelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Booking">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="From" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="To" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CustomerId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CustomerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Passport" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Amount" Type="Int32" Nullable="false" />
+    <Property Name="Total" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LnkRoleAction">
+    <Key>
+      <PropertyRef Name="RoleActionId" />
+      <PropertyRef Name="ActionId" />
+      <PropertyRef Name="UserRoleId" />
+      <PropertyRef Name="PageId" />
+    </Key>
+    <Property Name="RoleActionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ActionId" Type="Int32" Nullable="false" />
+    <Property Name="UserRoleId" Type="Int32" Nullable="false" />
+    <Property Name="CurrentDispositionId" Type="Int32" />
+    <Property Name="PageId" Type="Int32" Nullable="false" />
+    <Property Name="ActionGroup" Type="Int32" />
+  </EntityType>
+  <EntityType Name="LnkRoleAttribute">
+    <Key>
+      <PropertyRef Name="RoleAttributeId" />
+      <PropertyRef Name="AttributeId" />
+      <PropertyRef Name="UserRoleId" />
+    </Key>
+    <Property Name="RoleAttributeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AttributeId" Type="Int32" Nullable="false" />
+    <Property Name="UserRoleId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LnkUserComponent">
+    <Key>
+      <PropertyRef Name="LnkComponentId" />
+      <PropertyRef Name="ComponentId" />
+      <PropertyRef Name="IsParalegal" />
+      <PropertyRef Name="IsAttorney" />
+      <PropertyRef Name="IsIntlParalegal" />
+      <PropertyRef Name="IsIntlAttorney" />
+      <PropertyRef Name="IsPatentLead" />
+      <PropertyRef Name="UserInfoId" />
+      <PropertyRef Name="IsActive" />
+    </Key>
+    <Property Name="LnkComponentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ComponentId" Type="Int32" Nullable="false" />
+    <Property Name="IsParalegal" Type="Boolean" Nullable="false" />
+    <Property Name="IsAttorney" Type="Boolean" Nullable="false" />
+    <Property Name="IsIntlParalegal" Type="Boolean" Nullable="false" />
+    <Property Name="IsIntlAttorney" Type="Boolean" Nullable="false" />
+    <Property Name="IsPatentLead" Type="Boolean" Nullable="false" />
+    <Property Name="UserInfoId" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LnkUserInfoRole">
+    <Key>
+      <PropertyRef Name="UserInfoRoleId" />
+      <PropertyRef Name="UserInfoId" />
+      <PropertyRef Name="UserRoleId" />
+      <PropertyRef Name="IsActive" />
+    </Key>
+    <Property Name="UserInfoRoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserInfoId" Type="Int32" Nullable="false" />
+    <Property Name="UserRoleId" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="smarthotelEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+    <EntitySet Name="Bookings" EntityType="Self.Booking" />
+    <EntitySet Name="LnkRoleActions" EntityType="Self.LnkRoleAction" />
+    <EntitySet Name="LnkRoleAttributes" EntityType="Self.LnkRoleAttribute" />
+    <EntitySet Name="LnkUserComponents" EntityType="Self.LnkUserComponent" />
+    <EntitySet Name="LnkUserInfoRoles" EntityType="Self.LnkUserInfoRole" />
+    <FunctionImport Name="crossuserinfo" />
+    <FunctionImport Name="Linkroute" ReturnType="Collection(smarthotelModel.Linkroute_Result)" />
+    <FunctionImport Name="LinkUser" ReturnType="Collection(smarthotelModel.LinkUser_Result)" />
+    <FunctionImport Name="NewProc">
+      <Parameter Name="URL" Mode="In" Type="String" />
+      <Parameter Name="BlobCREDENTIALName" Mode="In" Type="String" />
+      <Parameter Name="BlockSizeBit" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_FileStream" />
+    <FunctionImport Name="Proc_FileStreamTest" />
+    <FunctionImport Name="Proc_Revoke" />
+  </EntityContainer>
+  <ComplexType Name="Linkroute_Result">
+    <Property Type="Int32" Name="RoleActionId" Nullable="false" />
+    <Property Type="Int32" Name="ActionId" Nullable="false" />
+    <Property Type="Int32" Name="UserRoleId" Nullable="false" />
+    <Property Type="Int32" Name="CurrentDispositionId" Nullable="true" />
+    <Property Type="Int32" Name="PageId" Nullable="false" />
+    <Property Type="Int32" Name="ActionGroup" Nullable="true" />
+    <Property Type="Int32" Name="RoleAttributeId" Nullable="false" />
+    <Property Type="Int32" Name="AttributeId" Nullable="false" />
+    <Property Type="Int32" Name="UserRoleId1" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="LinkUser_Result">
+    <Property Type="Int32" Name="LnkComponentId" Nullable="false" />
+    <Property Type="Int32" Name="ComponentId" Nullable="false" />
+    <Property Type="Boolean" Name="IsParalegal" Nullable="false" />
+    <Property Type="Boolean" Name="IsAttorney" Nullable="false" />
+    <Property Type="Boolean" Name="IsIntlParalegal" Nullable="false" />
+    <Property Type="Boolean" Name="IsIntlAttorney" Nullable="false" />
+    <Property Type="Boolean" Name="IsPatentLead" Nullable="false" />
+    <Property Type="Int32" Name="UserInfoId" Nullable="false" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+    <Property Type="Int32" Name="UserInfoRoleId" Nullable="false" />
+    <Property Type="Int32" Name="UserInfoId1" Nullable="false" />
+    <Property Type="Int32" Name="UserRoleId" Nullable="false" />
+    <Property Type="Boolean" Name="IsActive1" Nullable="false" />
+  </ComplexType>
+</Schema>

@@ -1,0 +1,429 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="smarthotelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bookings">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="From" Type="datetime" Nullable="false" />
+          <Property Name="To" Type="datetime" Nullable="false" />
+          <Property Name="CustomerId" Type="nvarchar(max)" />
+          <Property Name="CustomerName" Type="nvarchar(max)" />
+          <Property Name="Passport" Type="nvarchar(max)" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Amount" Type="int" Nullable="false" />
+          <Property Name="Total" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'smarthotel.dbo.LnkRoleAction' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="LnkRoleAction">
+          <Key>
+            <PropertyRef Name="RoleActionId" />
+            <PropertyRef Name="ActionId" />
+            <PropertyRef Name="UserRoleId" />
+            <PropertyRef Name="PageId" />
+          </Key>
+          <Property Name="RoleActionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActionId" Type="int" Nullable="false" />
+          <Property Name="UserRoleId" Type="int" Nullable="false" />
+          <Property Name="CurrentDispositionId" Type="int" />
+          <Property Name="PageId" Type="int" Nullable="false" />
+          <Property Name="ActionGroup" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'smarthotel.dbo.LnkRoleAttribute' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="LnkRoleAttribute">
+          <Key>
+            <PropertyRef Name="RoleAttributeId" />
+            <PropertyRef Name="AttributeId" />
+            <PropertyRef Name="UserRoleId" />
+          </Key>
+          <Property Name="RoleAttributeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AttributeId" Type="int" Nullable="false" />
+          <Property Name="UserRoleId" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'smarthotel.dbo.LnkUserComponent' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="LnkUserComponent">
+          <Key>
+            <PropertyRef Name="LnkComponentId" />
+            <PropertyRef Name="ComponentId" />
+            <PropertyRef Name="IsParalegal" />
+            <PropertyRef Name="IsAttorney" />
+            <PropertyRef Name="IsIntlParalegal" />
+            <PropertyRef Name="IsIntlAttorney" />
+            <PropertyRef Name="IsPatentLead" />
+            <PropertyRef Name="UserInfoId" />
+            <PropertyRef Name="IsActive" />
+          </Key>
+          <Property Name="LnkComponentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ComponentId" Type="int" Nullable="false" />
+          <Property Name="IsParalegal" Type="bit" Nullable="false" />
+          <Property Name="IsAttorney" Type="bit" Nullable="false" />
+          <Property Name="IsIntlParalegal" Type="bit" Nullable="false" />
+          <Property Name="IsIntlAttorney" Type="bit" Nullable="false" />
+          <Property Name="IsPatentLead" Type="bit" Nullable="false" />
+          <Property Name="UserInfoId" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'smarthotel.dbo.LnkUserInfoRole' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="LnkUserInfoRole">
+          <Key>
+            <PropertyRef Name="UserInfoRoleId" />
+            <PropertyRef Name="UserInfoId" />
+            <PropertyRef Name="UserRoleId" />
+            <PropertyRef Name="IsActive" />
+          </Key>
+          <Property Name="UserInfoRoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserInfoId" Type="int" Nullable="false" />
+          <Property Name="UserRoleId" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'smarthotel.dbo.Bookingadd' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Bookingadd">
+          <Property Name="CustomerId" Type="nvarchar(max)" />
+          <Property Name="CustomerName" Type="nvarchar(max)" />
+          <Property Name="Address" Type="nvarchar(max)" />
+        </EntityType>-->
+        <Function Name="crossuserinfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Linkroute" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="LinkUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="NewProc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="URL" Type="varchar" Mode="In" />
+          <Parameter Name="BlobCREDENTIALName" Type="varchar" Mode="In" />
+          <Parameter Name="BlockSizeBit" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Proc_FileStream" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Proc_FileStreamTest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Proc_Revoke" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="smarthotelModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bookings" EntityType="Self.Bookings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LnkRoleAction" EntityType="Self.LnkRoleAction" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [LnkRoleAction].[RoleActionId] AS [RoleActionId], 
+    [LnkRoleAction].[ActionId] AS [ActionId], 
+    [LnkRoleAction].[UserRoleId] AS [UserRoleId], 
+    [LnkRoleAction].[CurrentDispositionId] AS [CurrentDispositionId], 
+    [LnkRoleAction].[PageId] AS [PageId], 
+    [LnkRoleAction].[ActionGroup] AS [ActionGroup]
+    FROM [dbo].[LnkRoleAction] AS [LnkRoleAction]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="LnkRoleAttribute" EntityType="Self.LnkRoleAttribute" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [LnkRoleAttribute].[RoleAttributeId] AS [RoleAttributeId], 
+    [LnkRoleAttribute].[AttributeId] AS [AttributeId], 
+    [LnkRoleAttribute].[UserRoleId] AS [UserRoleId]
+    FROM [dbo].[LnkRoleAttribute] AS [LnkRoleAttribute]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="LnkUserComponent" EntityType="Self.LnkUserComponent" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [LnkUserComponent].[LnkComponentId] AS [LnkComponentId], 
+    [LnkUserComponent].[ComponentId] AS [ComponentId], 
+    [LnkUserComponent].[IsParalegal] AS [IsParalegal], 
+    [LnkUserComponent].[IsAttorney] AS [IsAttorney], 
+    [LnkUserComponent].[IsIntlParalegal] AS [IsIntlParalegal], 
+    [LnkUserComponent].[IsIntlAttorney] AS [IsIntlAttorney], 
+    [LnkUserComponent].[IsPatentLead] AS [IsPatentLead], 
+    [LnkUserComponent].[UserInfoId] AS [UserInfoId], 
+    [LnkUserComponent].[IsActive] AS [IsActive]
+    FROM [dbo].[LnkUserComponent] AS [LnkUserComponent]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="LnkUserInfoRole" EntityType="Self.LnkUserInfoRole" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [LnkUserInfoRole].[UserInfoRoleId] AS [UserInfoRoleId], 
+    [LnkUserInfoRole].[UserInfoId] AS [UserInfoId], 
+    [LnkUserInfoRole].[UserRoleId] AS [UserRoleId], 
+    [LnkUserInfoRole].[IsActive] AS [IsActive]
+    FROM [dbo].[LnkUserInfoRole] AS [LnkUserInfoRole]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="smarthotelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Booking">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="From" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="To" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CustomerId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Passport" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="Int32" Nullable="false" />
+          <Property Name="Total" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LnkRoleAction">
+          <Key>
+            <PropertyRef Name="RoleActionId" />
+            <PropertyRef Name="ActionId" />
+            <PropertyRef Name="UserRoleId" />
+            <PropertyRef Name="PageId" />
+          </Key>
+          <Property Name="RoleActionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActionId" Type="Int32" Nullable="false" />
+          <Property Name="UserRoleId" Type="Int32" Nullable="false" />
+          <Property Name="CurrentDispositionId" Type="Int32" />
+          <Property Name="PageId" Type="Int32" Nullable="false" />
+          <Property Name="ActionGroup" Type="Int32" />
+        </EntityType>
+        <EntityType Name="LnkRoleAttribute">
+          <Key>
+            <PropertyRef Name="RoleAttributeId" />
+            <PropertyRef Name="AttributeId" />
+            <PropertyRef Name="UserRoleId" />
+          </Key>
+          <Property Name="RoleAttributeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AttributeId" Type="Int32" Nullable="false" />
+          <Property Name="UserRoleId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LnkUserComponent">
+          <Key>
+            <PropertyRef Name="LnkComponentId" />
+            <PropertyRef Name="ComponentId" />
+            <PropertyRef Name="IsParalegal" />
+            <PropertyRef Name="IsAttorney" />
+            <PropertyRef Name="IsIntlParalegal" />
+            <PropertyRef Name="IsIntlAttorney" />
+            <PropertyRef Name="IsPatentLead" />
+            <PropertyRef Name="UserInfoId" />
+            <PropertyRef Name="IsActive" />
+          </Key>
+          <Property Name="LnkComponentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ComponentId" Type="Int32" Nullable="false" />
+          <Property Name="IsParalegal" Type="Boolean" Nullable="false" />
+          <Property Name="IsAttorney" Type="Boolean" Nullable="false" />
+          <Property Name="IsIntlParalegal" Type="Boolean" Nullable="false" />
+          <Property Name="IsIntlAttorney" Type="Boolean" Nullable="false" />
+          <Property Name="IsPatentLead" Type="Boolean" Nullable="false" />
+          <Property Name="UserInfoId" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LnkUserInfoRole">
+          <Key>
+            <PropertyRef Name="UserInfoRoleId" />
+            <PropertyRef Name="UserInfoId" />
+            <PropertyRef Name="UserRoleId" />
+            <PropertyRef Name="IsActive" />
+          </Key>
+          <Property Name="UserInfoRoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserInfoId" Type="Int32" Nullable="false" />
+          <Property Name="UserRoleId" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="smarthotelEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="Bookings" EntityType="Self.Booking" />
+          <EntitySet Name="LnkRoleActions" EntityType="Self.LnkRoleAction" />
+          <EntitySet Name="LnkRoleAttributes" EntityType="Self.LnkRoleAttribute" />
+          <EntitySet Name="LnkUserComponents" EntityType="Self.LnkUserComponent" />
+          <EntitySet Name="LnkUserInfoRoles" EntityType="Self.LnkUserInfoRole" />
+          <FunctionImport Name="crossuserinfo" />
+          <FunctionImport Name="Linkroute" ReturnType="Collection(smarthotelModel.Linkroute_Result)" />
+          <FunctionImport Name="LinkUser" ReturnType="Collection(smarthotelModel.LinkUser_Result)" />
+          <FunctionImport Name="NewProc">
+            <Parameter Name="URL" Mode="In" Type="String" />
+            <Parameter Name="BlobCREDENTIALName" Mode="In" Type="String" />
+            <Parameter Name="BlockSizeBit" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Proc_FileStream" />
+          <FunctionImport Name="Proc_FileStreamTest" />
+          <FunctionImport Name="Proc_Revoke" />
+        </EntityContainer>
+        <ComplexType Name="Linkroute_Result">
+          <Property Type="Int32" Name="RoleActionId" Nullable="false" />
+          <Property Type="Int32" Name="ActionId" Nullable="false" />
+          <Property Type="Int32" Name="UserRoleId" Nullable="false" />
+          <Property Type="Int32" Name="CurrentDispositionId" Nullable="true" />
+          <Property Type="Int32" Name="PageId" Nullable="false" />
+          <Property Type="Int32" Name="ActionGroup" Nullable="true" />
+          <Property Type="Int32" Name="RoleAttributeId" Nullable="false" />
+          <Property Type="Int32" Name="AttributeId" Nullable="false" />
+          <Property Type="Int32" Name="UserRoleId1" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="LinkUser_Result">
+          <Property Type="Int32" Name="LnkComponentId" Nullable="false" />
+          <Property Type="Int32" Name="ComponentId" Nullable="false" />
+          <Property Type="Boolean" Name="IsParalegal" Nullable="false" />
+          <Property Type="Boolean" Name="IsAttorney" Nullable="false" />
+          <Property Type="Boolean" Name="IsIntlParalegal" Nullable="false" />
+          <Property Type="Boolean" Name="IsIntlAttorney" Nullable="false" />
+          <Property Type="Boolean" Name="IsPatentLead" Nullable="false" />
+          <Property Type="Int32" Name="UserInfoId" Nullable="false" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="Int32" Name="UserInfoRoleId" Nullable="false" />
+          <Property Type="Int32" Name="UserInfoId1" Nullable="false" />
+          <Property Type="Int32" Name="UserRoleId" Nullable="false" />
+          <Property Type="Boolean" Name="IsActive1" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="smarthotelModelStoreContainer" CdmEntityContainer="smarthotelEntities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="smarthotelModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bookings">
+            <EntityTypeMapping TypeName="smarthotelModel.Booking">
+              <MappingFragment StoreEntitySet="Bookings">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="From" ColumnName="From" />
+                <ScalarProperty Name="To" ColumnName="To" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="Passport" ColumnName="Passport" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LnkRoleActions">
+            <EntityTypeMapping TypeName="smarthotelModel.LnkRoleAction">
+              <MappingFragment StoreEntitySet="LnkRoleAction">
+                <ScalarProperty Name="RoleActionId" ColumnName="RoleActionId" />
+                <ScalarProperty Name="ActionId" ColumnName="ActionId" />
+                <ScalarProperty Name="UserRoleId" ColumnName="UserRoleId" />
+                <ScalarProperty Name="CurrentDispositionId" ColumnName="CurrentDispositionId" />
+                <ScalarProperty Name="PageId" ColumnName="PageId" />
+                <ScalarProperty Name="ActionGroup" ColumnName="ActionGroup" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LnkRoleAttributes">
+            <EntityTypeMapping TypeName="smarthotelModel.LnkRoleAttribute">
+              <MappingFragment StoreEntitySet="LnkRoleAttribute">
+                <ScalarProperty Name="RoleAttributeId" ColumnName="RoleAttributeId" />
+                <ScalarProperty Name="AttributeId" ColumnName="AttributeId" />
+                <ScalarProperty Name="UserRoleId" ColumnName="UserRoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LnkUserComponents">
+            <EntityTypeMapping TypeName="smarthotelModel.LnkUserComponent">
+              <MappingFragment StoreEntitySet="LnkUserComponent">
+                <ScalarProperty Name="LnkComponentId" ColumnName="LnkComponentId" />
+                <ScalarProperty Name="ComponentId" ColumnName="ComponentId" />
+                <ScalarProperty Name="IsParalegal" ColumnName="IsParalegal" />
+                <ScalarProperty Name="IsAttorney" ColumnName="IsAttorney" />
+                <ScalarProperty Name="IsIntlParalegal" ColumnName="IsIntlParalegal" />
+                <ScalarProperty Name="IsIntlAttorney" ColumnName="IsIntlAttorney" />
+                <ScalarProperty Name="IsPatentLead" ColumnName="IsPatentLead" />
+                <ScalarProperty Name="UserInfoId" ColumnName="UserInfoId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LnkUserInfoRoles">
+            <EntityTypeMapping TypeName="smarthotelModel.LnkUserInfoRole">
+              <MappingFragment StoreEntitySet="LnkUserInfoRole">
+                <ScalarProperty Name="UserInfoRoleId" ColumnName="UserInfoRoleId" />
+                <ScalarProperty Name="UserInfoId" ColumnName="UserInfoId" />
+                <ScalarProperty Name="UserRoleId" ColumnName="UserRoleId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="crossuserinfo" FunctionName="smarthotelModel.Store.crossuserinfo" />
+          <FunctionImportMapping FunctionImportName="Linkroute" FunctionName="smarthotelModel.Store.Linkroute">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="smarthotelModel.Linkroute_Result">
+                <ScalarProperty Name="RoleActionId" ColumnName="RoleActionId" />
+                <ScalarProperty Name="ActionId" ColumnName="ActionId" />
+                <ScalarProperty Name="UserRoleId" ColumnName="UserRoleId" />
+                <ScalarProperty Name="CurrentDispositionId" ColumnName="CurrentDispositionId" />
+                <ScalarProperty Name="PageId" ColumnName="PageId" />
+                <ScalarProperty Name="ActionGroup" ColumnName="ActionGroup" />
+                <ScalarProperty Name="RoleAttributeId" ColumnName="RoleAttributeId" />
+                <ScalarProperty Name="AttributeId" ColumnName="AttributeId" />
+                <ScalarProperty Name="UserRoleId1" ColumnName="UserRoleId1" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="LinkUser" FunctionName="smarthotelModel.Store.LinkUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="smarthotelModel.LinkUser_Result">
+                <ScalarProperty Name="LnkComponentId" ColumnName="LnkComponentId" />
+                <ScalarProperty Name="ComponentId" ColumnName="ComponentId" />
+                <ScalarProperty Name="IsParalegal" ColumnName="IsParalegal" />
+                <ScalarProperty Name="IsAttorney" ColumnName="IsAttorney" />
+                <ScalarProperty Name="IsIntlParalegal" ColumnName="IsIntlParalegal" />
+                <ScalarProperty Name="IsIntlAttorney" ColumnName="IsIntlAttorney" />
+                <ScalarProperty Name="IsPatentLead" ColumnName="IsPatentLead" />
+                <ScalarProperty Name="UserInfoId" ColumnName="UserInfoId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="UserInfoRoleId" ColumnName="UserInfoRoleId" />
+                <ScalarProperty Name="UserInfoId1" ColumnName="UserInfoId1" />
+                <ScalarProperty Name="UserRoleId" ColumnName="UserRoleId" />
+                <ScalarProperty Name="IsActive1" ColumnName="IsActive1" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="NewProc" FunctionName="smarthotelModel.Store.NewProc" />
+          <FunctionImportMapping FunctionImportName="Proc_FileStream" FunctionName="smarthotelModel.Store.Proc_FileStream" />
+          <FunctionImportMapping FunctionImportName="Proc_FileStreamTest" FunctionName="smarthotelModel.Store.Proc_FileStreamTest" />
+          <FunctionImportMapping FunctionImportName="Proc_Revoke" FunctionName="smarthotelModel.Store.Proc_Revoke" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

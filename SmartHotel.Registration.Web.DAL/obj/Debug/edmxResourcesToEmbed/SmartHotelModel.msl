@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="smarthotelModelStoreContainer" CdmEntityContainer="smarthotelEntities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="smarthotelModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bookings">
+      <EntityTypeMapping TypeName="smarthotelModel.Booking">
+        <MappingFragment StoreEntitySet="Bookings">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="From" ColumnName="From" />
+          <ScalarProperty Name="To" ColumnName="To" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="Passport" ColumnName="Passport" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LnkRoleActions">
+      <EntityTypeMapping TypeName="smarthotelModel.LnkRoleAction">
+        <MappingFragment StoreEntitySet="LnkRoleAction">
+          <ScalarProperty Name="RoleActionId" ColumnName="RoleActionId" />
+          <ScalarProperty Name="ActionId" ColumnName="ActionId" />
+          <ScalarProperty Name="UserRoleId" ColumnName="UserRoleId" />
+          <ScalarProperty Name="CurrentDispositionId" ColumnName="CurrentDispositionId" />
+          <ScalarProperty Name="PageId" ColumnName="PageId" />
+          <ScalarProperty Name="ActionGroup" ColumnName="ActionGroup" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LnkRoleAttributes">
+      <EntityTypeMapping TypeName="smarthotelModel.LnkRoleAttribute">
+        <MappingFragment StoreEntitySet="LnkRoleAttribute">
+          <ScalarProperty Name="RoleAttributeId" ColumnName="RoleAttributeId" />
+          <ScalarProperty Name="AttributeId" ColumnName="AttributeId" />
+          <ScalarProperty Name="UserRoleId" ColumnName="UserRoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LnkUserComponents">
+      <EntityTypeMapping TypeName="smarthotelModel.LnkUserComponent">
+        <MappingFragment StoreEntitySet="LnkUserComponent">
+          <ScalarProperty Name="LnkComponentId" ColumnName="LnkComponentId" />
+          <ScalarProperty Name="ComponentId" ColumnName="ComponentId" />
+          <ScalarProperty Name="IsParalegal" ColumnName="IsParalegal" />
+          <ScalarProperty Name="IsAttorney" ColumnName="IsAttorney" />
+          <ScalarProperty Name="IsIntlParalegal" ColumnName="IsIntlParalegal" />
+          <ScalarProperty Name="IsIntlAttorney" ColumnName="IsIntlAttorney" />
+          <ScalarProperty Name="IsPatentLead" ColumnName="IsPatentLead" />
+          <ScalarProperty Name="UserInfoId" ColumnName="UserInfoId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LnkUserInfoRoles">
+      <EntityTypeMapping TypeName="smarthotelModel.LnkUserInfoRole">
+        <MappingFragment StoreEntitySet="LnkUserInfoRole">
+          <ScalarProperty Name="UserInfoRoleId" ColumnName="UserInfoRoleId" />
+          <ScalarProperty Name="UserInfoId" ColumnName="UserInfoId" />
+          <ScalarProperty Name="UserRoleId" ColumnName="UserRoleId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="crossuserinfo" FunctionName="smarthotelModel.Store.crossuserinfo" />
+    <FunctionImportMapping FunctionImportName="Linkroute" FunctionName="smarthotelModel.Store.Linkroute">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="smarthotelModel.Linkroute_Result">
+          <ScalarProperty Name="RoleActionId" ColumnName="RoleActionId" />
+          <ScalarProperty Name="ActionId" ColumnName="ActionId" />
+          <ScalarProperty Name="UserRoleId" ColumnName="UserRoleId" />
+          <ScalarProperty Name="CurrentDispositionId" ColumnName="CurrentDispositionId" />
+          <ScalarProperty Name="PageId" ColumnName="PageId" />
+          <ScalarProperty Name="ActionGroup" ColumnName="ActionGroup" />
+          <ScalarProperty Name="RoleAttributeId" ColumnName="RoleAttributeId" />
+          <ScalarProperty Name="AttributeId" ColumnName="AttributeId" />
+          <ScalarProperty Name="UserRoleId1" ColumnName="UserRoleId1" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="LinkUser" FunctionName="smarthotelModel.Store.LinkUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="smarthotelModel.LinkUser_Result">
+          <ScalarProperty Name="LnkComponentId" ColumnName="LnkComponentId" />
+          <ScalarProperty Name="ComponentId" ColumnName="ComponentId" />
+          <ScalarProperty Name="IsParalegal" ColumnName="IsParalegal" />
+          <ScalarProperty Name="IsAttorney" ColumnName="IsAttorney" />
+          <ScalarProperty Name="IsIntlParalegal" ColumnName="IsIntlParalegal" />
+          <ScalarProperty Name="IsIntlAttorney" ColumnName="IsIntlAttorney" />
+          <ScalarProperty Name="IsPatentLead" ColumnName="IsPatentLead" />
+          <ScalarProperty Name="UserInfoId" ColumnName="UserInfoId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="UserInfoRoleId" ColumnName="UserInfoRoleId" />
+          <ScalarProperty Name="UserInfoId1" ColumnName="UserInfoId1" />
+          <ScalarProperty Name="UserRoleId" ColumnName="UserRoleId" />
+          <ScalarProperty Name="IsActive1" ColumnName="IsActive1" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="NewProc" FunctionName="smarthotelModel.Store.NewProc" />
+    <FunctionImportMapping FunctionImportName="Proc_FileStream" FunctionName="smarthotelModel.Store.Proc_FileStream" />
+    <FunctionImportMapping FunctionImportName="Proc_FileStreamTest" FunctionName="smarthotelModel.Store.Proc_FileStreamTest" />
+    <FunctionImportMapping FunctionImportName="Proc_Revoke" FunctionName="smarthotelModel.Store.Proc_Revoke" />
+  </EntityContainerMapping>
+</Mapping>

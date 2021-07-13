@@ -1,0 +1,10 @@
+B:\SmartHotel\SmartHotel\SmartHotel.Registration.Web.DAL\bin\Debug\SmartHotel.Registration.Web.DAL.dll.config
+B:\SmartHotel\SmartHotel\SmartHotel.Registration.Web.DAL\bin\Debug\SmartHotel.Registration.Web.DAL.dll
+B:\SmartHotel\SmartHotel\SmartHotel.Registration.Web.DAL\bin\Debug\SmartHotel.Registration.Web.DAL.pdb
+B:\SmartHotel\SmartHotel\SmartHotel.Registration.Web.DAL\bin\Debug\EntityFramework.dll
+B:\SmartHotel\SmartHotel\SmartHotel.Registration.Web.DAL\bin\Debug\EntityFramework.SqlServer.dll
+B:\SmartHotel\SmartHotel\SmartHotel.Registration.Web.DAL\bin\Debug\EntityFramework.xml
+B:\SmartHotel\SmartHotel\SmartHotel.Registration.Web.DAL\bin\Debug\EntityFramework.SqlServer.xml
+B:\SmartHotel\SmartHotel\SmartHotel.Registration.Web.DAL\obj\Debug\SmartHotel.Registration.Web.DAL.csproj.CopyComplete
+B:\SmartHotel\SmartHotel\SmartHotel.Registration.Web.DAL\obj\Debug\SmartHotel.Registration.Web.DAL.dll
+B:\SmartHotel\SmartHotel\SmartHotel.Registration.Web.DAL\obj\Debug\SmartHotel.Registration.Web.DAL.pdb

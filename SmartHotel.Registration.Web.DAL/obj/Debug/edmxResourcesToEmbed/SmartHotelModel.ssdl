@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="smarthotelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bookings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="From" Type="datetime" Nullable="false" />
+    <Property Name="To" Type="datetime" Nullable="false" />
+    <Property Name="CustomerId" Type="nvarchar(max)" />
+    <Property Name="CustomerName" Type="nvarchar(max)" />
+    <Property Name="Passport" Type="nvarchar(max)" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="Amount" Type="int" Nullable="false" />
+    <Property Name="Total" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'smarthotel.dbo.LnkRoleAction' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="LnkRoleAction">
+    <Key>
+      <PropertyRef Name="RoleActionId" />
+      <PropertyRef Name="ActionId" />
+      <PropertyRef Name="UserRoleId" />
+      <PropertyRef Name="PageId" />
+    </Key>
+    <Property Name="RoleActionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ActionId" Type="int" Nullable="false" />
+    <Property Name="UserRoleId" Type="int" Nullable="false" />
+    <Property Name="CurrentDispositionId" Type="int" />
+    <Property Name="PageId" Type="int" Nullable="false" />
+    <Property Name="ActionGroup" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'smarthotel.dbo.LnkRoleAttribute' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="LnkRoleAttribute">
+    <Key>
+      <PropertyRef Name="RoleAttributeId" />
+      <PropertyRef Name="AttributeId" />
+      <PropertyRef Name="UserRoleId" />
+    </Key>
+    <Property Name="RoleAttributeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AttributeId" Type="int" Nullable="false" />
+    <Property Name="UserRoleId" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'smarthotel.dbo.LnkUserComponent' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="LnkUserComponent">
+    <Key>
+      <PropertyRef Name="LnkComponentId" />
+      <PropertyRef Name="ComponentId" />
+      <PropertyRef Name="IsParalegal" />
+      <PropertyRef Name="IsAttorney" />
+      <PropertyRef Name="IsIntlParalegal" />
+      <PropertyRef Name="IsIntlAttorney" />
+      <PropertyRef Name="IsPatentLead" />
+      <PropertyRef Name="UserInfoId" />
+      <PropertyRef Name="IsActive" />
+    </Key>
+    <Property Name="LnkComponentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ComponentId" Type="int" Nullable="false" />
+    <Property Name="IsParalegal" Type="bit" Nullable="false" />
+    <Property Name="IsAttorney" Type="bit" Nullable="false" />
+    <Property Name="IsIntlParalegal" Type="bit" Nullable="false" />
+    <Property Name="IsIntlAttorney" Type="bit" Nullable="false" />
+    <Property Name="IsPatentLead" Type="bit" Nullable="false" />
+    <Property Name="UserInfoId" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'smarthotel.dbo.LnkUserInfoRole' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="LnkUserInfoRole">
+    <Key>
+      <PropertyRef Name="UserInfoRoleId" />
+      <PropertyRef Name="UserInfoId" />
+      <PropertyRef Name="UserRoleId" />
+      <PropertyRef Name="IsActive" />
+    </Key>
+    <Property Name="UserInfoRoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserInfoId" Type="int" Nullable="false" />
+    <Property Name="UserRoleId" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'smarthotel.dbo.Bookingadd' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Bookingadd">
+          <Property Name="CustomerId" Type="nvarchar(max)" />
+          <Property Name="CustomerName" Type="nvarchar(max)" />
+          <Property Name="Address" Type="nvarchar(max)" />
+        </EntityType>-->
+  <Function Name="crossuserinfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Linkroute" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="LinkUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="NewProc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="URL" Type="varchar" Mode="In" />
+    <Parameter Name="BlobCREDENTIALName" Type="varchar" Mode="In" />
+    <Parameter Name="BlockSizeBit" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Proc_FileStream" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Proc_FileStreamTest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Proc_Revoke" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="smarthotelModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bookings" EntityType="Self.Bookings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LnkRoleAction" EntityType="Self.LnkRoleAction" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [LnkRoleAction].[RoleActionId] AS [RoleActionId], 
+    [LnkRoleAction].[ActionId] AS [ActionId], 
+    [LnkRoleAction].[UserRoleId] AS [UserRoleId], 
+    [LnkRoleAction].[CurrentDispositionId] AS [CurrentDispositionId], 
+    [LnkRoleAction].[PageId] AS [PageId], 
+    [LnkRoleAction].[ActionGroup] AS [ActionGroup]
+    FROM [dbo].[LnkRoleAction] AS [LnkRoleAction]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="LnkRoleAttribute" EntityType="Self.LnkRoleAttribute" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [LnkRoleAttribute].[RoleAttributeId] AS [RoleAttributeId], 
+    [LnkRoleAttribute].[AttributeId] AS [AttributeId], 
+    [LnkRoleAttribute].[UserRoleId] AS [UserRoleId]
+    FROM [dbo].[LnkRoleAttribute] AS [LnkRoleAttribute]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="LnkUserComponent" EntityType="Self.LnkUserComponent" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [LnkUserComponent].[LnkComponentId] AS [LnkComponentId], 
+    [LnkUserComponent].[ComponentId] AS [ComponentId], 
+    [LnkUserComponent].[IsParalegal] AS [IsParalegal], 
+    [LnkUserComponent].[IsAttorney] AS [IsAttorney], 
+    [LnkUserComponent].[IsIntlParalegal] AS [IsIntlParalegal], 
+    [LnkUserComponent].[IsIntlAttorney] AS [IsIntlAttorney], 
+    [LnkUserComponent].[IsPatentLead] AS [IsPatentLead], 
+    [LnkUserComponent].[UserInfoId] AS [UserInfoId], 
+    [LnkUserComponent].[IsActive] AS [IsActive]
+    FROM [dbo].[LnkUserComponent] AS [LnkUserComponent]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="LnkUserInfoRole" EntityType="Self.LnkUserInfoRole" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [LnkUserInfoRole].[UserInfoRoleId] AS [UserInfoRoleId], 
+    [LnkUserInfoRole].[UserInfoId] AS [UserInfoId], 
+    [LnkUserInfoRole].[UserRoleId] AS [UserRoleId], 
+    [LnkUserInfoRole].[IsActive] AS [IsActive]
+    FROM [dbo].[LnkUserInfoRole] AS [LnkUserInfoRole]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
